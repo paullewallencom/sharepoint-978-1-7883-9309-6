@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{82a06970-c54c-4ce5-a6ab-c72770094922}"
+       Name="Area"
+       DisplayName="Area"
+       Type="Lookup"
+       Required="FALSE"
+       List="Lists/Areas"
+       Group="Feedback Site Columns">
+  </Field>
+  <Field
+      ID="{82a06970-c54c-4ce5-a6ab-c72770094921}"
+      Name="Message"
+      DisplayName="Message"
+      Type="Note"
+      Required="FALSE"
+      RichText="TRUE"
+      Group="Feedback Site Columns">
+  </Field>
+  <Field
+    ID="{82a06970-c54c-4ce5-a6ab-c72770094920}"
+    Name="ErrorID"
+    DisplayName="Error ID"
+    Type="Text"
+    Required="FALSE"
+    Group="Feedback Site Columns">
+  </Field>
+</Elements>

@@ -1,0 +1,15 @@
+d:\_Coding\DemoProviderAddin\DemoProviderAddin\bin\Debug\roslyn\csc.exe
+d:\_Coding\DemoProviderAddin\DemoProviderAddin\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+d:\_Coding\DemoProviderAddin\DemoProviderAddin\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+d:\_Coding\DemoProviderAddin\DemoProviderAddin\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+d:\_Coding\DemoProviderAddin\DemoProviderAddin\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+d:\_Coding\DemoProviderAddin\DemoProviderAddin\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+d:\_Coding\DemoProviderAddin\DemoProviderAddin\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+d:\_Coding\DemoProviderAddin\DemoProviderAddin\bin\Debug\roslyn\System.Collections.Immutable.dll
+d:\_Coding\DemoProviderAddin\DemoProviderAddin\bin\Debug\roslyn\System.Reflection.Metadata.dll
+d:\_Coding\DemoProviderAddin\DemoProviderAddin\bin\Debug\roslyn\vbc.exe
+d:\_Coding\DemoProviderAddin\DemoProviderAddin\bin\Debug\roslyn\VBCSCompiler.exe
+d:\_Coding\DemoProviderAddin\DemoProviderAddin\bin\Debug\roslyn\VBCSCompiler.exe.config
+d:\_Coding\DemoProviderAddin\DemoProviderAddin\bin\Debug\DemoProviderAddin.pdb
+d:\_Coding\DemoProviderAddin\DemoProviderAddin\obj\Debug\DemoProviderAddin.dll
+d:\_Coding\DemoProviderAddin\DemoProviderAddin\obj\Debug\DemoProviderAddin.pdb

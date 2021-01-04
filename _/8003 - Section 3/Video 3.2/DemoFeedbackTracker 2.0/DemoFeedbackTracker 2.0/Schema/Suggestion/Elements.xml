@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Feedback (Demo Feedback Tracker\Feedback) (0x0100873894BF8B1742BF8387D2542F2AB56E) -->
+  <ContentType ID="0x0100873894BF8B1742BF8387D2542F2AB56E003AEF2C2D0C3040BB94B4898512093D59" Name="Suggestion" Group="Custom Content Types" Description="" Inherits="TRUE" Version="0">
+    <FieldRefs></FieldRefs>
+  </ContentType>
+</Elements>

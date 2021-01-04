@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Receivers ListUrl="Lists/FeedbackTracker">
+    <Receiver>
+      <Name>FeedbackRemoteReceiverItemAdding</Name>
+      <Type>ItemAdding</Type>
+      <SequenceNumber>10000</SequenceNumber>
+      <Url>~remoteAppUrl/Services/FeedbackRemoteReceiver.svc</Url>
+    </Receiver>
+  </Receivers>
+</Elements>

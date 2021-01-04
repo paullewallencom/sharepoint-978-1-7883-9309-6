@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Receivers ListUrl="Lists/FeedbackTracker">
+    <Receiver>
+      <Name>FeedbackRemoteReceiverItemAdding</Name>
+      <Type>ItemAdding</Type>
+      <SequenceNumber>10000</SequenceNumber>
+      <Url>https://oleglearnssp.servicebus.windows.net/2719000203/2956545180/obj/50125b8d-f36c-4264-9de0-fc1c3fd68012/Services/FeedbackRemoteReceiver.svc</Url>
+    </Receiver>
+  </Receivers>
+</Elements>

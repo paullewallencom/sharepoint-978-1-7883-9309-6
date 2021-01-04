@@ -1,0 +1,210 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.14/js/adal.min.js"></script>
+<script src="https://oleglearnssp.sharepoint.com/SiteAssets/graph-js-sdk-web.js"></script>
+
+<style type="text/css">
+.p-label {
+    font-size: 10pt;
+    font-weight: bolder;
+}
+
+.p-data {
+    display: inline-block;
+    padding-left: 15px;
+}
+
+#sideNavBox { display: none; }
+#contentBox { margin-left: 20px; }
+
+#emailContainer {
+    width: 1000px;
+    padding-top: 15px;
+}
+
+#emailList {
+    width: 300px;
+    vertical-align: top;
+    display: inline-block;
+    padding-right: 5px;
+    border-right: 1px silver solid;
+}
+
+.emailListItem {
+    padding-top: 5px;
+    display: block;
+    width: 300px;
+    border-bottom: 1px silver solid;
+    cursor: pointer;
+}
+
+.emailListItem:hover {
+    background-color: rgb(230,230,230);
+}
+
+.emailListItemSubject {
+    display: inline-block;
+    width: 250px;
+}
+
+.emailListItemDate {
+    display: inline-block;
+    width: 50px;
+    font-size: 9px;
+}
+
+#singleEmail {
+    vertical-align: top;
+    width: 670px;
+    margin-left: 20px;
+    display: inline-block;
+}
+</style>
+
+<div>
+  <h1>Testing Graph API + ADAL.js</h1>
+  <div id="message"></div>
+  <br/>
+  <div class="p-label">Display name</div><div class="p-data" id="displayName"></div>
+  <div class="p-label">Email</div><div class="p-data" id="mail"></div>
+  <br/>
+</div>
+
+<div id="emailContainer">
+    <h1>Emails</h1>
+    <div id="emailList">
+
+    </div>
+    <div id="singleEmail">
+
+    </div>
+</div>
+
+<script type="text/javascript">
+"use strict";
+var packt = window.packt || {};
+packt.clientId = ''; // ADD YOUR APP ID FROM AZURE AD APP REGISTRATION
+packt.tenant = ''; // ADD YOUR SPO TENANT ID
+packt.config = {
+    tenant: packt.tenant,
+    clientId: packt.clientId,
+    endpoints: { graphUri: 'https://graph.microsoft.com' },
+    cacheLocation: "localStorage"
+};
+packt.authContext =  new AuthenticationContext(packt.config);
+
+packt.getAuthToken = function(endpoint) {
+    var d = jQuery.Deferred();
+    //Read the token from the cache
+    var tokenCache = packt.authContext.getCachedToken(endpoint);
+    if(tokenCache == undefined) {
+        //If token is undefined, then call AAD to get a new token
+        packt.authContext.acquireToken(endpoint, function (error, token) {
+            if (error || !token) {
+                d.reject(error);
+            }
+            else {
+                d.resolve(token);
+            }
+        });
+    } else {
+        d.resolve(tokenCache);
+    }
+    //Return a promise for acquiring token
+    return d.promise();
+};
+
+packt.graphClient = MicrosoftGraph.Client.init({
+    debugLogging: true,
+    authProvider: function(done) {
+        //Get the token, either from the cache or from the server
+        var tokenPromise = packt.getAuthToken(packt.config.endpoints.graphUri);
+        tokenPromise.then(function(token) {
+            //Promise for token resolved
+            if(token != undefined) {
+                done(null, token);
+            }
+        }, function(error) { console.log(JSON.stringify(error)); });
+    }
+});
+
+packt.getGraphData = function() {
+    packt.graphClient.api('/me')
+            .select("displayName,mail")
+            .get((err, res) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                $('#displayName').text(res.displayName);
+                $('#mail').text(res.mail);
+                console.log(res);
+            });
+
+    packt.graphClient.api('/me/mailFolders(\'Inbox\')/messages')
+            .select("sender,subject,receivedDateTime").orderby('receivedDateTime desc').top(3)
+            .get((err, res) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                
+                if (res.value == null || res.value.length == 0) return;
+
+                $('#emailList').html('');
+                $('#singleEmail').html('');
+                for (var i = 0; i < res.value.length; i++) {
+                    var currDate = new Date(res.value[i].receivedDateTime);
+                    $('#emailList').append("<div class='emailListItem' itemid='" + res.value[i].id + "'><h3>" +  
+                        res.value[i].sender.emailAddress.name + " (" +
+                        res.value[i].sender.emailAddress.address + ")</h3><h4 class='emailListItemSubject'>" +
+                        res.value[i].subject + "</h4><div class='emailListItemDate'>" + 
+                        currDate.toLocaleDateString("en-US") + " " + currDate.toLocaleTimeString("en-US") + "</div></div>")
+                }
+
+                $('#emailList .emailListItem').click(function() {
+                    var itemid = $(this).attr("itemid");
+                    packt.displayEmail(itemid);
+                });
+
+                console.log(res);
+            });
+
+};
+
+packt.displayEmail = function(emailId) {
+    packt.graphClient.api('/me/messages/' + emailId)
+            .select("sender,subject,body")
+            .get((err, res) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                
+                //if (res.value == null || res.value.length == 0) return;
+
+                $('#singleEmail').html('<div class="singleEmailSender"><h3>' +  
+                    res.sender.emailAddress.name + " (" +
+                    res.sender.emailAddress.address + ')</h3></div><div class="singleEmailTitle">' + 
+                    res.subject + '</div><div class="singleEmailBody">' + 
+                    res.body.content + '</div>');
+                
+                console.log(res);
+            });
+};
+
+$(document).ready(function() {
+    // Check For & Handle Redirect From AAD After Login or Acquiring Token
+    var isCallback = packt.authContext.isCallback(window.location.hash);
+
+    if (isCallback && !packt.authContext.getLoginError()) {        
+        packt.authContext.handleWindowCallback(window.location.hash);
+    } else {
+        var user = packt.authContext.getCachedUser();
+        if (!user) { 
+            packt.authContext.login();
+        } else { 
+            packt.getGraphData(); 
+        }
+    }
+});
+</script>

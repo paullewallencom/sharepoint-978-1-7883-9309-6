@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100873894BF8B1742BF8387D2542F2AB56E" Name="Feedback" Group="Custom Content Types" Description="" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{82642ec8-ef9b-478f-acf9-31f7d45fbc31}" DisplayName="$Resources:core,Title;" Required="TRUE" Name="LinkTitle" ReadOnly="TRUE" />
+      <FieldRef ID="{82a06970-c54c-4ce5-a6ab-c72770094922}" DisplayName="Area" Required="TRUE" Name="Area" />
+      <FieldRef ID="{82a06970-c54c-4ce5-a6ab-c72770094921}" DisplayName="Message" Required="FALSE" Name="Message" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

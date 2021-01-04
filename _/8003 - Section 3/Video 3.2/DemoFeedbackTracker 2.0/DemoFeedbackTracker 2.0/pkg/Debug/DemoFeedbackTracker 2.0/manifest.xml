@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/" SolutionId="5f0c3b4e-935a-4ce0-aad4-bff5f4b0aa1b" SharePointProductVersion="16.0">
+  <FeatureManifests>
+    <FeatureManifest Location="DemoFeedbackTracker 2.0_Feature1\Feature.xml" />
+    <FeatureManifest Location="DemoFeedbackTracker 2.0_Feature2\Feature.xml" />
+  </FeatureManifests>
+</Solution>

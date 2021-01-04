@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Created:cb85b80c-f585-40ff-8bfc-12ff4d0e34a9-->
+<App xmlns="http://schemas.microsoft.com/sharepoint/2012/app/manifest" Name="DemoFeedbackTracker20" ProductID="{96f78a28-74c9-4af0-bf21-f8d2eab6b684}" Version="2.0.0.1" SharePointMinVersion="16.0.0.0">
+  <Properties>
+    <Title>DemoFeedbackTracker 2.0</Title>
+    <StartPage>https://localhost:44312/Pages/Default.aspx?{StandardTokens}</StartPage>
+  </Properties>
+  <AppPrincipal>
+    <AutoDeployedWebApplication>
+      <DebugInfo ClientSecret="74NH+DGI+oqYcfjFoSiUqSzex3uIYzsZuKsKWANe2Ho=" AppUrl="https://localhost:44312/" />
+    </AutoDeployedWebApplication>
+  </AppPrincipal>
+  <AppPermissionRequests AllowAppOnlyPolicy="true">
+    <AppPermissionRequest Scope="http://sharepoint/content/sitecollection" Right="FullControl" />
+  </AppPermissionRequests>
+</App>

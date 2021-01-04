@@ -1,0 +1,1 @@
+d:\_Coding\DemoProviderAddin\DemoProviderAddin\bin\Debug\DemoProviderAddin.debugapp

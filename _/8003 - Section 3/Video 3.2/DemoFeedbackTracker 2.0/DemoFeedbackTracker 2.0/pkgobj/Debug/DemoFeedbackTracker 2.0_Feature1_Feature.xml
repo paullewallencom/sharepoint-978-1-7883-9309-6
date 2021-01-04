@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Title="DemoFeedbackTracker 2.0 Feature1" Id="9ba5285d-9d66-4785-bec6-65d556923e0e" Scope="Web" Version="2.0.0.1">
+  <ElementManifests>
+    <ElementManifest Location="Areas\Elements.xml" />
+    <ElementFile Location="Areas\Schema.xml" />
+    <ElementManifest Location="AreasInstance\Elements.xml" />
+    <ElementManifest Location="Feedback\Elements.xml" />
+  </ElementManifests>
+  <UpgradeActions>
+    <VersionRange>
+      <ApplyElementManifests>
+        <ElementManifest Location="Areas\Elements.xml" />
+        <ElementManifest Location="AreasInstance\Elements.xml" />
+        <ElementManifest Location="Feedback\Elements.xml" />
+      </ApplyElementManifests>
+    </VersionRange>
+  </UpgradeActions>
+</Feature>

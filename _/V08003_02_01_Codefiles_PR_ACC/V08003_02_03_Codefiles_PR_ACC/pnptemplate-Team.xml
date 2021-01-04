@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
+  <pnp:Preferences>
+    <pnp:Parameters>
+      <pnp:Parameter Key="depName" Required="true"/>
+    </pnp:Parameters>
+  </pnp:Preferences>
+  
+  <pnp:Templates ID="SAMPLE-TEMPLATES">
+  <pnp:ProvisioningTemplate ID="CUSTOMTEAM" Version="1.0"
+      BaseSiteTemplate="STS#0">
+	<pnp:Lists>
+		<pnp:ListInstance Title="{parameter:depName} Docs"
+		Description="" DocumentTemplate="{site}/Docs/Forms/template.dotx" TemplateType="101" 
+		Url="Docs" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="500" OnQuickLaunch="true" 
+		DraftVersionVisibility="0" TemplateFeatureID="00bfea71-e717-4e80-aa17-d0c71b360101" EnableAttachments="false">
+		<pnp:ContentTypeBindings>
+			<pnp:ContentTypeBinding ContentTypeID="0x0101" Default="true" />
+			<pnp:ContentTypeBinding ContentTypeID="0x0120" />
+		</pnp:ContentTypeBindings>
+		<pnp:Views>
+		<View Name="{2210EB5C-5CBF-41B8-BFBC-BF769418AFA7}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Documents" Url="/SiteCollectionDocuments/Forms/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/dlicon.png?rev=44">
+		  <Query>
+			<OrderBy>
+			  <FieldRef Name="FileLeafRef" />
+			</OrderBy>
+		  </Query>
+		  <ViewFields>
+			<FieldRef Name="DocIcon" />
+			<FieldRef Name="LinkFilename" />
+			<FieldRef Name="Modified" />
+			<FieldRef Name="Editor" />
+			<FieldRef Name="CheckoutUser" />
+		  </ViewFields>
+		  <RowLimit Paged="TRUE">30</RowLimit>
+		  <JSLink>clienttemplates.js</JSLink>
+		</View>
+		</pnp:Views>
+		<pnp:FieldRefs>
+		<pnp:FieldRef ID="ccc1037f-f65e-434a-868e-8c98af31fe29" Name="_ComplianceFlags" DisplayName="Label setting" />
+		<pnp:FieldRef ID="d4b6480a-4bed-4094-9a52-30181ea38f1d" Name="_ComplianceTag" DisplayName="Labels" />
+		<pnp:FieldRef ID="92be610e-ddbb-49f4-b3b1-5c2bc768df8f" Name="_ComplianceTagWrittenTime" DisplayName="Label Applied" />
+		<pnp:FieldRef ID="418d7676-2d6f-42cf-a16a-e43d2971252a" Name="_ComplianceTagUserId" DisplayName="Label applied by" />
+		<pnp:FieldRef ID="8382d247-72a9-44b1-9794-7b177edc89f3" Name="_IsRecord" DisplayName="Item is a Record" />
+	  </pnp:FieldRefs>
+		<pnp:Folders>
+            <pnp:Folder Name="SubFolder-01">
+              <pnp:Folder Name="SubFolder-01-01">
+                <pnp:Folder Name="SubFolder-01-01-01"/>
+              </pnp:Folder>
+              <pnp:Security>
+                <pnp:BreakRoleInheritance CopyRoleAssignments="false" ClearSubscopes="true">
+                  <pnp:RoleAssignment Principal="oleg@oleglearnssp.onmicrosoft.com" RoleDefinition="Full Control"/>
+                </pnp:BreakRoleInheritance>
+              </pnp:Security>
+            </pnp:Folder>
+            <pnp:Folder Name="SubFolder-02" />
+          </pnp:Folders>
+		</pnp:ListInstance>
+	</pnp:Lists>
+  </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+ </pnp:Provisioning>

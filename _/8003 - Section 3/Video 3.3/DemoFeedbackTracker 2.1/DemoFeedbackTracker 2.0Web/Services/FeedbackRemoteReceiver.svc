@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="DemoFeedbackTracker_2._0Web.Services.FeedbackRemoteReceiver" CodeBehind="FeedbackRemoteReceiver.svc.cs" %>

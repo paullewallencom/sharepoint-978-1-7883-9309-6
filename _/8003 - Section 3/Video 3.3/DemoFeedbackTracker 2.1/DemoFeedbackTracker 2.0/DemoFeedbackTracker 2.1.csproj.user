@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SharePointSiteUrl>https://oleglearnssp.sharepoint.com/</SharePointSiteUrl>
+    <ProjectView>ProjectFiles</ProjectView>
+    <OfficeAndSharePointStartAction>Google Chrome</OfficeAndSharePointStartAction>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{C1CDDADD-2546-481F-9697-4EA41081F2FC}">
+        <ProjectStore>
+          <AppInstancePackageModifiedTime>2017-06-07T18:09:32.987051Z</AppInstancePackageModifiedTime>
+          <AppInstanceId>08628c45-7edd-4046-8bc4-24152f7037f9</AppInstanceId>
+        </ProjectStore>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

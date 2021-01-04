@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Feedback (Demo Feedback Tracker\Feedback) (0x0100873894BF8B1742BF8387D2542F2AB56E) -->
+  <ContentType ID="0x0100873894BF8B1742BF8387D2542F2AB56E008FC66C6E02374C85A14483E0982C7DE5" Name="Issue report" Group="Custom Content Types" Description="My Content Type" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{82a06970-c54c-4ce5-a6ab-c72770094920}" DisplayName="Error ID" Required="FALSE" Name="ErrorID" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Areas" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/Areas" Description="Areas od feedback">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="Title">Document management</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">Social (skype for business, yammer)</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">Permissions</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">Performance</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">Other</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>
